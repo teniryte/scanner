@@ -1,0 +1,22 @@
+commands:
+  run:
+    desc: Clone a repository into a newly created directory
+    args:
+      - filename1
+      - filename2
+  scan:
+    desc: Scan files
+    args:
+      - dirname
+
+options:
+  debug:
+    short: d
+    desc: output extra debugging
+  small:
+    short: s
+    desc: small pizza size
+  pizza-type:
+    short: p
+    desc: flavour of pizza
+    arg: type

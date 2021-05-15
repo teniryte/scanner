@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "esnext",
+    "sourceMap": false,
+    "paths": {
+      "store/*": ["store/*"],
+      "sections/*": ["sections/*"],
+      "common/*": ["components/common/*"],
+      "lib/*": ["lib/*"],
+      "components/*": ["components/*"],
+      "ui/*": ["components/ui/*"]
+    }
+  }
+}

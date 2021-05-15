@@ -1,0 +1,66 @@
+#!/usr/bin/env node
+
+const commander = require('commander');
+const xyaml = require('xyaml');
+const path = require('path');
+const fs = require('fs');
+
+class Commands {
+  constructor(options, settings) {
+    this.options = options;
+    this.settings = settings;
+  }
+
+  run(filename1, filename2) {
+    console.log(`
+      Scanner
+      Command RUN: ${filename1}, ${filename2}
+    `);
+  }
+
+  scan(dirname) {
+    console.log(`
+      Scanner
+      Command SCAN: ${dirname}
+    `);
+  }
+}
+
+start(getSettings());
+
+function start(settings) {
+  let program = commander.program,
+    config = xyaml.loadFile(path.resolve(__dirname, 'config.yaml'));
+
+  program.version('0.0.1');
+
+  Object.keys(config.options).forEach(name => {
+    let opts = config.options[name];
+    program.option(
+      `-${opts.short}, --${name}${opts.arg ? ` <${opts.arg}>` : ``}`,
+      opts.desc
+    );
+  });
+
+  Object.keys(config.commands).forEach(name => {
+    let opts = config.commands[name];
+    program
+      .command(`${name} ${opts.args.map(arg => `<${arg}>`).join(' ')}`)
+      .description(opts.desc)
+      .action((...args) => {
+        let commands = new Commands(program.opts(), settings);
+        commands[name].call(commands, ...args);
+      });
+  });
+
+  program.parse(process.argv);
+
+  return program;
+}
+
+function getSettings() {
+  // @ts-ignore
+  let filename = path.resolve(process.env.HOME, '.scanner.yaml');
+  if (!fs.existsSync(filename)) return {};
+  return xyaml.loadFile(filename);
+}
