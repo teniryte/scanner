@@ -1,0 +1,29 @@
+{
+  "name": "scanner",
+  "version": "0.0.4",
+  "main": "./lib/index.js",
+  "bin": "./bin/scanner",
+  "description": "Files & Projects Tools",
+  "keywords": [],
+  "homepage": "https://github.com/teniryte/scanner",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "dependencies": {
+    "commander": "^7.2.0",
+    "ooi": "^0.1.56",
+    "xyaml": "^0.1.4"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teniryte/scanner.git"
+  },
+  "author": {
+    "name": "teniryte",
+    "email": "teniryte@gmail.com"
+  }
+}
