@@ -1,13 +1,11 @@
 commands:
-  run:
-    desc: Clone a repository into a newly created directory
-    args:
-      - filename1
-      - filename2
-  scan:
-    desc: Scan files
-    args:
-      - dirname
+  localize:
+    desc: Resolve local package dependencies for fast development
+    args: []
+
+  publish:
+    desc: Fix all resolved local dependencies, commit changes to github, publish all packages on npm
+    args: []
 
 options:
   debug:

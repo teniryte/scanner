@@ -4,6 +4,7 @@ const commander = require('commander');
 const xyaml = require('xyaml');
 const path = require('path');
 const fs = require('fs');
+const scanner = require('../lib');
 
 class Commands {
   constructor(options, settings) {
@@ -11,18 +12,19 @@ class Commands {
     this.settings = settings;
   }
 
-  run(filename1, filename2) {
-    console.log(`
-      Scanner
-      Command RUN: ${filename1}, ${filename2}
-    `);
+  localize() {
+    console.log('Start localizing...');
+    scanner
+      .localize()
+      .then(() => console.log('Localizing finished!'))
+      .catch(err => console.log('Error', err));
   }
 
-  scan(dirname) {
-    console.log(`
-      Scanner
-      Command SCAN: ${dirname}
-    `);
+  publish() {
+    scanner
+      .publish()
+      .then(() => console.log('Publishing finished!'))
+      .catch(err => console.log('Error', err));
   }
 }
 
