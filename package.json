@@ -1,19 +1,22 @@
 {
   "name": "scanner",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "./lib/index.js",
   "bin": "./bin/scanner",
   "description": "Files & Projects Tools",
   "keywords": [],
   "homepage": "https://github.com/teniryte/scanner",
   "license": "MIT",
-  "devDependencies": {
-    "jest": "^26.6.3"
-  },
+  "devDependencies": {},
   "dependencies": {
     "commander": "^7.2.0",
+    "jest": "^26.6.3",
     "ooi": "^0.1.56",
-    "xyaml": "^0.1.4"
+    "require-resolve": "^0.0.2",
+    "rimraf": "^3.0.2",
+    "semver": "^7.3.5",
+    "xyaml": "^0.1.7",
+    "yarn": "^1.22.10"
   },
   "scripts": {
     "test": "./node_modules/.bin/jest"
